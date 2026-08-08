@@ -14,9 +14,9 @@
 }
 
 .profile__info {
-  margin-right: auto;
+  flex: 1 1 auto;
   min-width: 0;
-  max-width: 336px;
+  margin-right: 30px;
 }
 
 .profile__heading {
