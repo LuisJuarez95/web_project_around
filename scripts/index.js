@@ -10,6 +10,8 @@ const saveButton = editFormElement.querySelector(".popup__save-button");
 const profileNameElement = document.querySelector(".profile__name");
 const profileAboutElement = document.querySelector(".profile__about");
 
+const likeButtons = document.querySelectorAll(".card__like-button");
+
 function openPopup(popupElement) {
   popupElement.classList.add("popup_opened");
 }
@@ -30,6 +32,10 @@ function handleEditProfileClick() {
   openPopup(popupEditProfile);
 }
 
+function handleLikeButtonClick(evt) {
+  evt.target.classList.toggle("card__like-button_active");
+}
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
@@ -44,3 +50,5 @@ closeButton.addEventListener("click", () => closePopup(popupEditProfile));
 editFormElement.addEventListener("submit", handleProfileFormSubmit);
 nameInput.addEventListener("input", updateSaveButtonState);
 aboutInput.addEventListener("input", updateSaveButtonState);
+
+likeButtons.forEach((button) => button.addEventListener("click", handleLikeButtonClick));
