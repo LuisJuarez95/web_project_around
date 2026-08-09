@@ -18,6 +18,7 @@
 .popup__container {
   position: relative;
   width: 430px;
+  height: 330px;
   max-width: calc(100% - 32px);
   box-sizing: border-box;
   padding: 34px 36px 36px;
@@ -62,8 +63,9 @@
 }
 
 .popup__save-button {
-  align-self: flex-end;
-  min-width: 100px;
+  width: 100%;
+  max-width: 358px;
+  align-self: center;
   padding: 12px 20px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -91,16 +93,17 @@
 
 .popup__close {
   position: absolute;
-  top: -34px;
-  right: -34px;
-  width: 32px;
-  height: 32px;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
   border: none;
   background-color: transparent;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2'%3E%3Cline x1='4' y1='4' x2='28' y2='28'/%3E%3Cline x1='28' y1='4' x2='4' y2='28'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,1)' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 20px;
+  background-size: 22px;
+  transform: rotate(45deg);
   cursor: pointer;
   padding: 0;
   transition: opacity 0.2s ease;
