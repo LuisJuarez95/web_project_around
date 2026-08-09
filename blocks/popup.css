@@ -27,9 +27,12 @@
 }
 
 .popup__title {
-  font-size: 24px;
+  font-family: "Inter", Arial, sans-serif;
   font-weight: 900;
-  line-height: 1.2;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 1);
   margin: 0 0 48px;
 }
 
@@ -42,9 +45,11 @@
   width: 100%;
   box-sizing: border-box;
   font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
   font-weight: 400;
-  color: #000000;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 1);
   padding: 0 0 10px;
   margin-bottom: 28px;
   border: none;
@@ -53,7 +58,7 @@
 }
 
 .popup__input::placeholder {
-  color: #000000;
+  color: rgba(196, 196, 196, 1);
 }
 
 .popup__save-button {
@@ -61,11 +66,14 @@
   min-width: 100px;
   padding: 12px 20px;
   font-family: "Inter", Arial, sans-serif;
-  font-size: 18px;
   font-weight: 400;
-  color: #ffffff;
-  background-color: #000000;
-  border: 1px solid #000000;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: rgba(196, 196, 196, 1);
+  background-color: #ffffff;
+  border: 1px solid rgba(196, 196, 196, 1);
   border-radius: 2px;
   cursor: pointer;
   transition: opacity 0.2s ease;
@@ -73,6 +81,12 @@
 
 .popup__save-button:hover {
   opacity: 0.8;
+}
+
+.popup__save-button_active {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000;
 }
 
 .popup__close {

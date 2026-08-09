@@ -5,6 +5,8 @@ const editFormElement = popupEditProfile.querySelector(".popup__form");
 const nameInput = editFormElement.querySelector(".popup__input_type_name");
 const aboutInput = editFormElement.querySelector(".popup__input_type_about");
 
+const saveButton = editFormElement.querySelector(".popup__save-button");
+
 const profileNameElement = document.querySelector(".profile__name");
 const profileAboutElement = document.querySelector(".profile__about");
 
@@ -16,9 +18,15 @@ function closePopup(popupElement) {
   popupElement.classList.remove("popup_opened");
 }
 
+function updateSaveButtonState() {
+  const hasData = nameInput.value.trim() !== "" && aboutInput.value.trim() !== "";
+  saveButton.classList.toggle("popup__save-button_active", hasData);
+}
+
 function handleEditProfileClick() {
   nameInput.value = profileNameElement.textContent;
   aboutInput.value = profileAboutElement.textContent;
+  updateSaveButtonState();
   openPopup(popupEditProfile);
 }
 
@@ -34,3 +42,5 @@ function handleProfileFormSubmit(evt) {
 editButton.addEventListener("click", handleEditProfileClick);
 closeButton.addEventListener("click", () => closePopup(popupEditProfile));
 editFormElement.addEventListener("submit", handleProfileFormSubmit);
+nameInput.addEventListener("input", updateSaveButtonState);
+aboutInput.addEventListener("input", updateSaveButtonState);
