@@ -50,7 +50,7 @@ const closeImageButton = popupImage.querySelector(".popup__close");
 const popupImageElement = popupImage.querySelector(".popup__image");
 const popupCaptionElement = popupImage.querySelector(".popup__caption");
 
-const cardTemplate = document.querySelector(".card-template").content;
+const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
 function openPopup(popupElement) {
@@ -78,13 +78,13 @@ function handleLikeButtonClick(evt) {
 }
 
 function handleDeleteButtonClick(evt) {
-  evt.target.closest(".card").remove();
+  evt.target.parentElement.remove();
 }
 
-function handleCardImageClick(cardData) {
-  popupImageElement.src = cardData.link;
-  popupImageElement.alt = cardData.name;
-  popupCaptionElement.textContent = cardData.name;
+function handleCardImageClick(evt) {
+  popupImageElement.src = evt.target.src;
+  popupImageElement.alt = evt.target.alt;
+  popupCaptionElement.textContent = evt.target.alt;
   openPopup(popupImage);
 }
 
@@ -110,7 +110,7 @@ function createCard(cardData) {
 
   cardLikeButton.addEventListener("click", handleLikeButtonClick);
   cardDeleteButton.addEventListener("click", handleDeleteButtonClick);
-  cardImageElement.addEventListener("click", () => handleCardImageClick(cardData));
+  cardImageElement.addEventListener("click", handleCardImageClick);
 
   return cardElement;
 }
