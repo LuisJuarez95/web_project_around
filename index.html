@@ -31,50 +31,7 @@
         </section>
 
         <section class="cards">
-          <ul class="cards__list">
-            <li class="card">
-              <img src="./images/yosemite-valley.jpg" alt="Valle de Yosemite" class="card__image" />
-              <div class="card__info">
-                <h2 class="card__title">Valle de Yosemite</h2>
-                <button type="button" class="card__like-button" aria-label="Me gusta"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/lake-louise.jpg" alt="Lago Louise" class="card__image" />
-              <div class="card__info">
-                <h2 class="card__title">Lago Louise</h2>
-                <button type="button" class="card__like-button" aria-label="Me gusta"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/bald-mountains.jpg" alt="Montañas Calvas" class="card__image" />
-              <div class="card__info">
-                <h2 class="card__title">Montañas Calvas</h2>
-                <button type="button" class="card__like-button" aria-label="Me gusta"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/latemar.jpg" alt="Latemar" class="card__image" />
-              <div class="card__info">
-                <h2 class="card__title">Latemar</h2>
-                <button type="button" class="card__like-button" aria-label="Me gusta"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/vanoise.jpg" alt="Parque Nacional de la Vanoise" class="card__image" />
-              <div class="card__info">
-                <h2 class="card__title">Parque Nacional de la Vanoise</h2>
-                <button type="button" class="card__like-button" aria-label="Me gusta"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/lago-di-braies.jpg" alt="Lago di Braies" class="card__image" />
-              <div class="card__info">
-                <h2 class="card__title">Lago di Braies</h2>
-                <button type="button" class="card__like-button" aria-label="Me gusta"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
 
@@ -110,6 +67,51 @@
         </form>
       </div>
     </div>
+
+    <div class="popup popup_type_new-card">
+      <div class="popup__container">
+        <button type="button" class="popup__close" aria-label="Cerrar"></button>
+        <h2 class="popup__title">Nuevo lugar</h2>
+        <form class="popup__form" name="new-card" novalidate>
+          <input
+            type="text"
+            name="name"
+            class="popup__input popup__input_type_card-name"
+            placeholder="Nombre del lugar"
+            minlength="2"
+            maxlength="30"
+            required
+          />
+          <input
+            type="url"
+            name="link"
+            class="popup__input popup__input_type_url"
+            placeholder="Enlace a la imagen"
+            required
+          />
+          <button type="submit" class="popup__save-button">Crear</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_image">
+      <div class="popup__container popup__container_type_image">
+        <button type="button" class="popup__close" aria-label="Cerrar"></button>
+        <img src="" alt="" class="popup__image" />
+        <p class="popup__caption"></p>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image" />
+        <button type="button" class="card__delete-button" aria-label="Eliminar"></button>
+        <div class="card__info">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__like-button" aria-label="Me gusta"></button>
+        </div>
+      </li>
+    </template>
 
     <script src="./scripts/index.js" defer></script>
   </body>

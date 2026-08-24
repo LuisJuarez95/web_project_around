@@ -8,12 +8,16 @@ Página interactiva donde los usuarios pueden ver y editar su perfil, y explorar
 
 - Diseño responsivo (320px - 1280px) siguiendo la metodología BEM.
 - Ventana emergente para editar el nombre y la descripción del perfil.
-- Galería de seis tarjetas fotográficas con botón de "me gusta".
+- Galería de tarjetas fotográficas renderizadas por JavaScript a partir de un arreglo de datos.
+- Ventana emergente para agregar una nueva tarjeta (nombre + enlace a la imagen).
+- Botón de "me gusta" en cada tarjeta.
+- Botón para eliminar tarjetas.
+- Ventana emergente para ver la imagen de una tarjeta ampliada.
 
-## Tecnologías
+## Tecnologías y técnicas
 
-- HTML5
-- CSS3 (Flexbox, Grid, metodología BEM)
-- JavaScript
+- HTML5 semántico.
+- CSS3 (Flexbox, Grid, metodología BEM).
+- JavaScript: manipulación del DOM, eventos, elementos `<template>` para renderizar tarjetas.
 
 ## Mi sitio: https://luisjuarez95.github.io/web_project_around/
