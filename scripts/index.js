@@ -72,6 +72,10 @@ function handleLikeButtonClick(evt) {
   evt.target.classList.toggle("card__like-button_active");
 }
 
+function handleDeleteButtonClick(evt) {
+  evt.target.closest(".card").remove();
+}
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
@@ -86,12 +90,14 @@ function createCard(cardData) {
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardTitleElement = cardElement.querySelector(".card__title");
   const cardLikeButton = cardElement.querySelector(".card__like-button");
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
 
   cardImageElement.src = cardData.link;
   cardImageElement.alt = cardData.name;
   cardTitleElement.textContent = cardData.name;
 
   cardLikeButton.addEventListener("click", handleLikeButtonClick);
+  cardDeleteButton.addEventListener("click", handleDeleteButtonClick);
 
   return cardElement;
 }
