@@ -117,6 +117,28 @@
   opacity: 0.6;
 }
 
+.popup__container_type_image {
+  width: auto;
+  height: auto;
+  max-width: 75vw;
+  padding: 0;
+  background-color: transparent;
+}
+
+.popup__image {
+  display: block;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.popup__caption {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #ffffff;
+  margin: 10px 0 0;
+}
+
 @media screen and (max-width: 480px) {
   .popup__container {
     padding: 26px 22px 30px;

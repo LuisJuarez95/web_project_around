@@ -45,6 +45,11 @@ const cardNameInput = newCardFormElement.querySelector(".popup__input_type_card-
 const cardLinkInput = newCardFormElement.querySelector(".popup__input_type_url");
 const newCardSaveButton = newCardFormElement.querySelector(".popup__save-button");
 
+const popupImage = document.querySelector(".popup_type_image");
+const closeImageButton = popupImage.querySelector(".popup__close");
+const popupImageElement = popupImage.querySelector(".popup__image");
+const popupCaptionElement = popupImage.querySelector(".popup__caption");
+
 const cardTemplate = document.querySelector(".card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
@@ -76,6 +81,13 @@ function handleDeleteButtonClick(evt) {
   evt.target.closest(".card").remove();
 }
 
+function handleCardImageClick(cardData) {
+  popupImageElement.src = cardData.link;
+  popupImageElement.alt = cardData.name;
+  popupCaptionElement.textContent = cardData.name;
+  openPopup(popupImage);
+}
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
@@ -98,6 +110,7 @@ function createCard(cardData) {
 
   cardLikeButton.addEventListener("click", handleLikeButtonClick);
   cardDeleteButton.addEventListener("click", handleDeleteButtonClick);
+  cardImageElement.addEventListener("click", () => handleCardImageClick(cardData));
 
   return cardElement;
 }
@@ -143,5 +156,7 @@ closeNewCardButton.addEventListener("click", () => closePopup(popupNewCard));
 newCardFormElement.addEventListener("submit", handleNewCardFormSubmit);
 cardNameInput.addEventListener("input", updateNewCardSaveButtonState);
 cardLinkInput.addEventListener("input", updateNewCardSaveButtonState);
+
+closeImageButton.addEventListener("click", () => closePopup(popupImage));
 
 initialCards.forEach(renderCard);
