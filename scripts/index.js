@@ -61,9 +61,12 @@ function closePopup(popupElement) {
   popupElement.classList.remove("popup_opened");
 }
 
+function hasFormData(firstInput, secondInput) {
+  return firstInput.value.trim() !== "" && secondInput.value.trim() !== "";
+}
+
 function updateSaveButtonState() {
-  const hasData = nameInput.value.trim() !== "" && aboutInput.value.trim() !== "";
-  saveButton.classList.toggle("popup__save-button_active", hasData);
+  saveButton.classList.toggle("popup__save-button_active", hasFormData(nameInput, aboutInput));
 }
 
 function handleEditProfileClick() {
@@ -121,8 +124,7 @@ function renderCard(cardData) {
 }
 
 function updateNewCardSaveButtonState() {
-  const hasData = cardNameInput.value.trim() !== "" && cardLinkInput.value.trim() !== "";
-  newCardSaveButton.classList.toggle("popup__save-button_active", hasData);
+  newCardSaveButton.classList.toggle("popup__save-button_active", hasFormData(cardNameInput, cardLinkInput));
 }
 
 function handleAddCardClick() {
