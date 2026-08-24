@@ -37,6 +37,14 @@ const saveButton = editFormElement.querySelector(".popup__save-button");
 const profileNameElement = document.querySelector(".profile__name");
 const profileAboutElement = document.querySelector(".profile__about");
 
+const popupNewCard = document.querySelector(".popup_type_new-card");
+const addButton = document.querySelector(".profile__add-button");
+const closeNewCardButton = popupNewCard.querySelector(".popup__close");
+const newCardFormElement = popupNewCard.querySelector(".popup__form");
+const cardNameInput = newCardFormElement.querySelector(".popup__input_type_card-name");
+const cardLinkInput = newCardFormElement.querySelector(".popup__input_type_url");
+const newCardSaveButton = newCardFormElement.querySelector(".popup__save-button");
+
 const cardTemplate = document.querySelector(".card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
@@ -93,10 +101,41 @@ function renderCard(cardData) {
   cardsList.append(cardElement);
 }
 
+function updateNewCardSaveButtonState() {
+  const hasData = cardNameInput.value.trim() !== "" && cardLinkInput.value.trim() !== "";
+  newCardSaveButton.classList.toggle("popup__save-button_active", hasData);
+}
+
+function handleAddCardClick() {
+  newCardFormElement.reset();
+  updateNewCardSaveButtonState();
+  openPopup(popupNewCard);
+}
+
+function handleNewCardFormSubmit(evt) {
+  evt.preventDefault();
+
+  const cardData = {
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+  };
+
+  const cardElement = createCard(cardData);
+  cardsList.prepend(cardElement);
+
+  closePopup(popupNewCard);
+}
+
 editButton.addEventListener("click", handleEditProfileClick);
 closeButton.addEventListener("click", () => closePopup(popupEditProfile));
 editFormElement.addEventListener("submit", handleProfileFormSubmit);
 nameInput.addEventListener("input", updateSaveButtonState);
 aboutInput.addEventListener("input", updateSaveButtonState);
+
+addButton.addEventListener("click", handleAddCardClick);
+closeNewCardButton.addEventListener("click", () => closePopup(popupNewCard));
+newCardFormElement.addEventListener("submit", handleNewCardFormSubmit);
+cardNameInput.addEventListener("input", updateNewCardSaveButtonState);
+cardLinkInput.addEventListener("input", updateNewCardSaveButtonState);
 
 initialCards.forEach(renderCard);
