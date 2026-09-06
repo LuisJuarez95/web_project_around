@@ -47,6 +47,7 @@
         <form class="popup__form" name="edit-profile" novalidate>
           <input
             type="text"
+            id="profile-name-input"
             name="name"
             class="popup__input popup__input_type_name"
             placeholder="Nombre"
@@ -54,8 +55,10 @@
             maxlength="40"
             required
           />
+          <span class="popup__error" id="profile-name-input-error"></span>
           <input
             type="text"
+            id="profile-about-input"
             name="about"
             class="popup__input popup__input_type_about"
             placeholder="Acerca de mí"
@@ -63,7 +66,8 @@
             maxlength="200"
             required
           />
-          <button type="submit" class="popup__save-button">Guardar</button>
+          <span class="popup__error" id="profile-about-input-error"></span>
+          <button type="submit" class="popup__button">Guardar</button>
         </form>
       </div>
     </div>
@@ -75,6 +79,7 @@
         <form class="popup__form" name="new-card" novalidate>
           <input
             type="text"
+            id="card-name-input"
             name="name"
             class="popup__input popup__input_type_card-name"
             placeholder="Nombre del lugar"
@@ -82,14 +87,17 @@
             maxlength="30"
             required
           />
+          <span class="popup__error" id="card-name-input-error"></span>
           <input
             type="url"
+            id="card-link-input"
             name="link"
             class="popup__input popup__input_type_url"
             placeholder="Enlace a la imagen"
             required
           />
-          <button type="submit" class="popup__save-button">Crear</button>
+          <span class="popup__error" id="card-link-input-error"></span>
+          <button type="submit" class="popup__button">Crear</button>
         </form>
       </div>
     </div>
@@ -113,6 +121,7 @@
       </li>
     </template>
 
+    <script src="./scripts/validate.js" defer></script>
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>

@@ -52,7 +52,7 @@
   letter-spacing: 0%;
   color: rgba(0, 0, 0, 1);
   padding: 0 0 10px;
-  margin-bottom: 48px;
+  margin-bottom: 5px;
   border: none;
   border-bottom: 1px solid #000000;
   outline: none;
@@ -66,7 +66,25 @@
   box-shadow: 0 1px 0 0 #000000;
 }
 
-.popup__save-button {
+.popup__input_type_error {
+  border-bottom-color: #ff0000;
+}
+
+.popup__error {
+  display: block;
+  min-height: 30px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  opacity: 0;
+}
+
+.popup__error_visible {
+  opacity: 1;
+}
+
+.popup__button {
   width: 100%;
   max-width: 358px;
   align-self: center;
@@ -85,11 +103,18 @@
   transition: opacity 0.2s ease;
 }
 
-.popup__save-button:hover {
+.popup__button:hover {
   opacity: 0.8;
 }
 
-.popup__save-button_active {
+.popup__button_disabled {
+  color: #c4c4c4;
+  background-color: #ffffff;
+  border-color: #c4c4c4;
+  cursor: default;
+}
+
+.popup__button:not(.popup__button_disabled) {
   color: #ffffff;
   background-color: #000000;
   border-color: #000000;
