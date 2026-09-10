@@ -18,6 +18,14 @@ Página interactiva donde los usuarios pueden ver y editar su perfil, y explorar
 
 - HTML5 semántico.
 - CSS3 (Flexbox, Grid, metodología BEM).
-- JavaScript: manipulación del DOM, eventos, elementos `<template>` para renderizar tarjetas.
+- JavaScript modular: clases `Card` y `FormValidator`, manipulación del DOM y eventos.
+- Elementos `<template>` para renderizar las tarjetas.
+
+## Estructura de JavaScript
+
+- `scripts/Card.js`: crea y controla cada tarjeta.
+- `scripts/FormValidator.js`: valida los formularios.
+- `scripts/utils.js`: contiene las funciones para abrir y cerrar ventanas modales.
+- `scripts/index.js`: conecta los datos, formularios y clases con la página.
 
 ## Mi sitio: https://luisjuarez95.github.io/web_project_around/
