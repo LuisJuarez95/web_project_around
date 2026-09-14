@@ -23,7 +23,7 @@ export class Card {
   }
 
   _handleImageClick() {
-    this._handleCardClick(this._name, this._link);
+    this._handleCardClick();
   }
 
   _setEventListeners() {
