@@ -19,7 +19,9 @@
 
       <main class="content">
         <section class="profile">
-          <img src="./images/avatar.png" alt="Foto de perfil" class="profile__avatar" />
+          <button type="button" class="profile__avatar-button" aria-label="Cambiar foto de perfil">
+            <img src="./images/avatar.png" alt="Foto de perfil" class="profile__avatar" />
+          </button>
           <div class="profile__info">
             <div class="profile__heading">
               <h1 class="profile__name">Jacques Cousteau</h1>
@@ -107,6 +109,35 @@
         <button type="button" class="popup__close" aria-label="Cerrar"></button>
         <img src="./images/yosemite-valley.jpg" alt="Imagen ampliada de un lugar" class="popup__image" />
         <p class="popup__caption"></p>
+      </div>
+    </div>
+
+    <div class="popup popup_type_confirmation">
+      <div class="popup__container popup__container_type_confirmation">
+        <button type="button" class="popup__close" aria-label="Cerrar"></button>
+        <h2 class="popup__title">¿Estás seguro?</h2>
+        <form class="popup__form" name="delete-card">
+          <button type="submit" class="popup__button">Sí</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_avatar">
+      <div class="popup__container popup__container_type_avatar">
+        <button type="button" class="popup__close" aria-label="Cerrar"></button>
+        <h2 class="popup__title">Cambiar foto de perfil</h2>
+        <form class="popup__form" name="edit-avatar" novalidate>
+          <input
+            type="url"
+            id="profile-avatar-input"
+            name="avatar"
+            class="popup__input popup__input_type_url"
+            placeholder="Enlace a la imagen"
+            required
+          />
+          <span class="popup__error" id="profile-avatar-input-error"></span>
+          <button type="submit" class="popup__button">Guardar</button>
+        </form>
       </div>
     </div>
 
