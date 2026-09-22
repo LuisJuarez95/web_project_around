@@ -1,9 +1,22 @@
 export class Card {
-  constructor({ name, link }, cardSelector, handleCardClick) {
+  constructor(
+    { name, link, _id, isLiked, owner },
+    cardSelector,
+    handleCardClick,
+    handleLikeClick,
+    handleDeleteClick,
+    userId
+  ) {
     this._name = name;
     this._link = link;
+    this._id = _id;
+    this._isLiked = isLiked;
+    this._ownerId = typeof owner === "string" ? owner : owner._id;
+    this._userId = userId;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._handleLikeClick = handleLikeClick;
+    this._handleDeleteClick = handleDeleteClick;
   }
 
   _getTemplate() {
@@ -15,11 +28,11 @@ export class Card {
   }
 
   _handleLikeButtonClick() {
-    this._likeButton.classList.toggle("card__like-button_active");
+    this._handleLikeClick(this);
   }
 
   _handleDeleteButtonClick() {
-    this._element.remove();
+    this._handleDeleteClick(this);
   }
 
   _handleImageClick() {
@@ -31,9 +44,11 @@ export class Card {
       this._handleLikeButtonClick();
     });
 
-    this._deleteButton.addEventListener("click", () => {
-      this._handleDeleteButtonClick();
-    });
+    if (this._ownerId === this._userId) {
+      this._deleteButton.addEventListener("click", () => {
+        this._handleDeleteButtonClick();
+      });
+    }
 
     this._image.addEventListener("click", () => {
       this._handleImageClick();
@@ -49,9 +64,31 @@ export class Card {
     this._image.src = this._link;
     this._image.alt = this._name;
     this._element.querySelector(".card__title").textContent = this._name;
+    this.setLikeStatus(this._isLiked);
+
+    if (this._ownerId !== this._userId) {
+      this._deleteButton.remove();
+    }
 
     this._setEventListeners();
 
     return this._element;
+  }
+
+  getId() {
+    return this._id;
+  }
+
+  isLiked() {
+    return this._isLiked;
+  }
+
+  setLikeStatus(isLiked) {
+    this._isLiked = isLiked;
+    this._likeButton.classList.toggle("card__like-button_active", isLiked);
+  }
+
+  remove() {
+    this._element.remove();
   }
 }

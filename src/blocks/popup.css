@@ -150,6 +150,20 @@
   background-color: transparent;
 }
 
+.popup__container_type_confirmation {
+  height: auto;
+  min-height: 181px;
+}
+
+.popup__container_type_confirmation .popup__title {
+  margin-bottom: 36px;
+}
+
+.popup__container_type_avatar {
+  height: auto;
+  min-height: 272px;
+}
+
 .popup__image {
   display: block;
   max-width: 75vw;
